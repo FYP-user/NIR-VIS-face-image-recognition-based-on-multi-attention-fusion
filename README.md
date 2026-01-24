@@ -1,5 +1,23 @@
 ## Our Works
 
+##Title
+Lightweight NIR-VIS face image recognition using deep learning and multi-attention fusion
+
+##Dataset Introduction and Dataset Source
+The CASIA NIR-VIS 2.0 face dataset is one of the most prominent NIR-VIS face recognition datasets.
+The BUAA-VISNIR face dataset is a widely used heterogeneous face database, often employed for 376
+evaluating domain adaptation.
+The Oulu-Casia NIR&VIS dataset is a near-infrared face recognition dataset designed to address 382
+illumination variations.
+The LFW (Labled Faces in the Wild) dataset is a commonly used test set for face recognition.
+The CASIA NIR-VIS 2.0 face dataset that support the findings of this study is available at
+http://www.cbsr.ia.ac.cn/english/NIR-VIS-2.0-Database.html.
+The BUAA-VisNir dataset was created by researchers at Beihang University. Access can be requested directly from the original creators (Contact:
+Prof. Di Huang) or via their laboratory website. 
+The Oulu-Casia NIR&VIS dataset is available athttps://www.oulu.fi/en/university/faculties-and-units/faculty-information-technology-and-electrical-engin
+eering/center-for-machine-vision-and-signal-analysis\#off-canvas. 
+The LFW database is available at http://vis-www.cs.umass.edu/lfw/.
+
 ## Prerequisites
 - Python 3.7.0 & PyTorch 1.5.0 & Torchvision 0.6.0
 - Download LightCNN-29 [[Google Drive](https://drive.google.com/file/d/1Jn6aXtQ84WY-7J3Tpr2_j6sX0ch9yucS/view)] pretrained on MS-Celeb-1M.
