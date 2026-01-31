@@ -19,6 +19,13 @@ The Oulu-Casia NIR&VIS dataset is available athttps://www.oulu.fi/en/university/
 eering/center-for-machine-vision-and-signal-analysis\#off-canvas. 
 The LFW database is available at http://vis-www.cs.umass.edu/lfw/.
 
+## Install dependencies
+- pip install torch torchvision
+- pip install pillow
+- pip install numpy
+- pip install caffe2
+
+## Code Information
 ## Prerequisites
 - Python 3.7.0 & PyTorch 1.5.0 & Torchvision 0.6.0
 - Download LightCNN-29 [[Google Drive](https://drive.google.com/file/d/1Jn6aXtQ84WY-7J3Tpr2_j6sX0ch9yucS/view)] pretrained on MS-Celeb-1M.
