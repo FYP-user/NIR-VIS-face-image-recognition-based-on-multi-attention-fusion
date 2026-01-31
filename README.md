@@ -13,11 +13,9 @@ illumination variations.
 The LFW (Labled Faces in the Wild) dataset is a commonly used test set for face recognition.
 The CASIA NIR-VIS 2.0 face dataset that support the findings of this study is available at
 http://www.cbsr.ia.ac.cn/english/NIR-VIS-2.0-Database.html.
-The BUAA-VisNir dataset was created by researchers at Beihang University. Access can be requested directly from the original creators (Contact:
-Prof. Di Huang) or via their laboratory website. 
-The Oulu-Casia NIR&VIS dataset is available athttps://www.oulu.fi/en/university/faculties-and-units/faculty-information-technology-and-electrical-engin
-eering/center-for-machine-vision-and-signal-analysis\#off-canvas. 
-The LFW database is available at http://vis-www.cs.umass.edu/lfw/.
+The BUAA-VisNir dataset was created by researchers at Beihang University. Access can be requested directly from the original creators (Contact:Prof. Di Huang) or via their laboratory website. 
+The Oulu-Casia NIR&VIS dataset is available athttps://www.oulu.fi/en/university/faculties-and-units/faculty-information-technology-and-electrical-engineering/center-for-machine-vision-and-signal-analysis\#off-canvas. 
+The LFW dataset is publicly available at the official website (\url{ http://vis-www.cs.umass.edu/lfw/}). An alternative repository is also hosted on Kaggle (\url{https://www.kaggle.com/datasets/jessicali9530/lfw-dataset}).
 
 ## ‎Requirements – Any dependencies
 - pip install torch torchvision
@@ -65,34 +63,6 @@ python train_ligthcnn.py --gpu_ids 0,1
 
 ## Citation
 ```
-@article{fu2021dvg,
-  title={DVG-face: Dual variational generation for heterogeneous face recognition},
-  author={Fu, Chaoyou and Wu, Xiang and Hu, Yibo and Huang, Huaibo and He, Ran},
-  journal={IEEE TPAMI},
-  year={2021}
-}
-
-@inproceedings{fu2019dual,
-  title={Dual Variational Generation for Low-Shot Heterogeneous Face Recognition},
-  author={Fu, Chaoyou and Wu, Xiang and Hu, Yibo and Huang, Huaibo and He, Ran},
-  booktitle={NeurIPS},
-  year={2019}
-}
-
-@article{fu2022towards,
-  title={Towards Lightweight Pixel-Wise Hallucination for Heterogeneous Face Recognition},
-  author={Fu, Chaoyou and Zhou, Xiaoqiang and He, Weizan and He, Ran},
-  journal={IEEE TPAMI},
-  year={2022}
-}
-
-@inproceedings{duan2020cross,
-  title={Cross-spectral face hallucination via disentangling independent factors},
-  author={Duan, Boyan and Fu, Chaoyou and Li, Yi and Song, Xingguang and He, Ran},
-  booktitle={CVPR},
-  year={2020}
-}
-
 @inproceedings{li2013casia,
 title={The casia nir-vis 2.0 face database},
 author={Li, Stan Z and Yi, Dong and Lei, Zhen and Liao, Shengcai},
