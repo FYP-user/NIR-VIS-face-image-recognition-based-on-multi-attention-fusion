@@ -92,6 +92,42 @@ python train_ligthcnn.py --gpu_ids 0,1
   year={2020}
 }
 
+@inproceedings{li2013casia,
+title={The casia nir-vis 2.0 face database},
+author={Li, Stan Z and Yi, Dong and Lei, Zhen and Liao, Shengcai},
+booktitle={Computer Vision and Pattern Recognition Workshops (CVPRW), 2013 IEEE Conference on},
+pages={348--353},
+year={2013},
+organization={IEEE}
+ }
+
+@article{The BUAA-VisNir,
+  title={The BUAA-VisNir face database instructions},
+  author={Huang, Di and Sun, Jia and Wang, Yunhong},
+  journal={School Comput. Sci. Eng., Beihang Univ., Beijing, China, Tech. Rep. IRIP-TR-12-FR-001},
+  volume={3},
+  number={3},
+  pages={8},
+  year={2012}
+}
+
+@TechReport{LFWTech,
+    author = {Gary B. Huang and Manu Ramesh and Tamara Berg and Erik Learned-Miller},
+    title = {Labeled Faces in the Wild: A Database for Studying Face Recognition in Unconstrained Environments},
+    institution = {University of Massachusetts, Amherst},
+    year = 2007,
+    number = {07-49},
+    month = {October}
+}
+
+@inproceedings{Oulu-Casia NIR&VIS,
+  title={Learning mappings for face synthesis from near infrared to visual light images},
+  author={Chen, Jie and Yi, Dong and Yang, Jimei and Zhao, Guoying and Li, Stan Z and Pietikainen, Matti},
+  booktitle={2009 IEEE conference on computer vision and pattern recognition},
+  pages={156--163},
+  year={2009},
+  organization={IEEE}
+}
 ```
 
 
