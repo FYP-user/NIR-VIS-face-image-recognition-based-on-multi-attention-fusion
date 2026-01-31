@@ -3,7 +3,7 @@
 ## Title
 Lightweight NIR-VIS face image recognition using deep learning and multi-attention fusion
 
-## Dataset Introduction and Dataset Source
+## Dataset Information and ‎Description
 https://github.com/ZhaoJ9014/face.evoLVe#Data-Zoo
 The CASIA NIR-VIS 2.0 face dataset is one of the most prominent NIR-VIS face recognition datasets.
 The BUAA-VISNIR face dataset is a widely used heterogeneous face database, often employed for 376
@@ -19,7 +19,7 @@ The Oulu-Casia NIR&VIS dataset is available athttps://www.oulu.fi/en/university/
 eering/center-for-machine-vision-and-signal-analysis\#off-canvas. 
 The LFW database is available at http://vis-www.cs.umass.edu/lfw/.
 
-## Install Dependencies
+## ‎Requirements – Any dependencies
 - pip install torch torchvision
 - pip install pillow
 - pip install numpy
@@ -32,6 +32,7 @@ The LFW database is available at http://vis-www.cs.umass.edu/lfw/.
 - Download Identity Sampler [[Google Drive](https://drive.google.com/file/d/1kezDpwqA4a3WGq5PfS1kDrASf3-bN4js/view?usp=sharing)] pretrained on MS-Celeb-1M.
 - Put the above two models in `./pre_train`
 
+## Usage Instructions
 ## Train the generator
 `train.py`:
 Fill out options of '--img_root' and '--train_list', which are the image root and training list of the heterogeneous data, respectively.
