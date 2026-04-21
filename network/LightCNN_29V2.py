@@ -14,19 +14,19 @@ class network_29layers_v2(nn.Module):
         super(network_29layers_v2, self).__init__()
         self.is_train = is_train
 
-        self.conv_downsampling1 = nn.Conv2d(3, 3, kernel_size=2, stride=2)
+        self.conv_downsampling1 = nn.Conv2d(3, 3, kernel_size=3, stride=2)
         self.DW1 = DepthWiseConv(in_channel, out_channel)
         self.MAFCNN1 = MAFCNN(in_channel, out_channel)
 
-        self.conv_downsampling2 = nn.Conv2d(3, 3, kernel_size=2, stride=2)
+        self.conv_downsampling2 = nn.Conv2d(3, 3, kernel_size=3, stride=1)
         self.DW2 = DepthWiseConv(in_channel, out_channel)
         self.MAFCNN2 = MAFCNN(in_channel, out_channel)
 
-        self.conv_downsampling3 = nn.Conv2d(3, 3, kernel_size=2, stride=2)
+        self.conv_downsampling3 = nn.Conv2d(3, 3, kernel_size=3, stride=1)
         self.DW3 = DepthWiseConv(in_channel, out_channel)
         self.MAFCNN3 = MAFCNN(in_channel, out_channel)
 
-        self.fc = nn.Linear(8 * 8 * 128, 256)
+        self.fc = nn.Linear(8 * 8 * 64, 256)
         if self.is_train:
             self.fc2_ = nn.Linear(256, num_classes, bias=False)
 
@@ -54,30 +54,39 @@ class MAFCNN(nn.Module):
         super().__init__()
         self.avg_pool = nn.AvgPool2d(x)
         self.max_pool = nn.MaxPool2d(x)
-        self.conv1 = nn.Conv1d(in_channels, out_channels, kernel_size=(2, 1))
+        self.conv1 = nn.Conv1d(in_channels, out_channels, kernel_size=(1, 1))
+        self.relu = nn.ReLU(inplace=True)
         self.conv2 = nn.Conv2d(in_channels, out_channels, kernel_size=(3, 1))
         self.concat = nn.Concat(input1, input2)
+        self.softmax_C = nn.Softmax(dim=1)
+        self.softmax_H = nn.Softmax(dim=2)
+        self.softmax_W = nn.Softmax(dim=3)
 
     def forward(self, x):
         avg_H = self.avg_pool(x)
         max_H = self.max_pool(x)
         out_H = self.conv1(Concat(avg_H + max_H))
+        out_H = self.relu(out_H)
         out_H = self.conv2(out_H)
-        out_H = self.softmax(out_H)
+        out_H = self.softmax_C(out_H)
+
 
         avg_W = self.avg_pool(x)
         max_W = self.max_pool(x)
         out_W = self.conv1(Concat(avg_W + max_W))
+        out_W = self.relu(out_W)
         out_W = self.conv2(out_W)
-        out_W = self.softmax(out_W)
+        out_W = self.softmax_W(out_W)
 
         avg_C = self.avg_pool(x)
         max_C = self.max_pool(x)
         out_C = Concat(self.conv1(avg_C) + self.conv1(max_C))
+        out_C = self.relu(out_C)
         out_C = self.conv2(out_C)
-        out_C = self.softmax(out_C)
+        out_C = self.softmax_C(out_C)
 
         out = x * out_H * out_W * out_C
+        out = x + out
         return out
 
 # softmax
