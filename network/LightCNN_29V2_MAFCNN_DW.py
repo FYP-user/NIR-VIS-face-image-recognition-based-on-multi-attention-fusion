@@ -15,6 +15,7 @@ class network_29layers_v2(nn.Module):
         super(network_29layers_v2, self).__init__()
         self.is_train = is_train
 
+
         self.conv_downsampling1 = nn.Conv2d(3, 3, kernel_size=2, stride=2)
         self.MAFCNN1 = MAFCNN(in_channels, out_channels)
         self.DW1 = DepthWiseConv(in_channels, out_channels)
@@ -30,7 +31,7 @@ class network_29layers_v2(nn.Module):
         self.DW3 = DepthWiseConv(in_channels, out_channels)
         self.mfm3 = mfm(in_channels, out_channels, kernel_size=3, stride=1, padding=1)
 
-        self.fc = nn.Linear(8 * 8 * 128, 256)
+        self.fc = nn.Linear(8 * 8 * 64, 256)
         if self.is_train:
             self.fc2_ = nn.Linear(256, num_classes, bias=False)
 
@@ -62,7 +63,8 @@ class MAFCNN(nn.Module):
         super().__init__()
         self.avg_pool = nn.AvgPool2d(x)
         self.max_pool = nn.MaxPool2d(x)
-        self.conv1 = nn.Conv1d(in_channels, out_channels, kernel_size=(2, 1))
+        self.conv1 = nn.Conv1d(in_channels, out_channels, kernel_size=(1, 1))
+        self.relu = nn.ReLU(inplace=True)
         self.conv2 = nn.Conv2d(in_channels, out_channels, kernel_size=(3, 1))
         self.concat = nn.Concat(input1, input2)
 
@@ -70,18 +72,21 @@ class MAFCNN(nn.Module):
         avg_H = self.avg_pool(x)
         max_H = self.max_pool(x)
         out_H = self.conv1(concat(avg_H + max_H))
+        out_H = self.relu(out_H)
         out_H = self.conv2(out_H)
         out_H = self.softmax(out_H)
 
         avg_W = self.avg_pool(x)
         max_W = self.max_pool(x)
         out_W = self.conv1(concat(avg_W + max_W))
+        out_W = self.relu(out_W)
         out_W = self.conv2(out_W)
         out_W = self.softmax(out_W)
 
         avg_C = self.avg_pool(x)
         max_C = self.max_pool(x)
         out_C = concat(self.conv1(avg_C) + self.conv1(max_C))
+        out_C = self.relu(out_C)
         out_C = self.Conv2(out_C)
         out_C = self.softmax(out_C)
 
